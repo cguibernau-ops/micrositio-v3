@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Diagnóstico para locales de repuestos - Versión 3 (Embed)</title>
+<style>
+  :root{
+    --accent:#0b5cff;
+    --muted:#6b7280;
+    --bg:#f7f8fb;
+    --card:#ffffff;
+    --maxw:1100px;
+    --radius:12px;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  }
+  body{margin:0;background:var(--bg);color:#0f1724}
+  .container{max-width:1100px;margin:24px auto;padding:18px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:#07113b;color:#fff;border-radius:10px}
+  header h1{margin:0;font-size:18px}
+  nav{display:flex;gap:12px;align-items:center}
+  nav a{color:#cfe1ff;text-decoration:none;cursor:pointer}
+  .hero{display:flex;gap:20px;align-items:center;margin-top:20px}
+  .hero .text{flex:1}
+  .hero img{width:420px;max-width:40%;border-radius:10px;object-fit:cover;display:block}
+  section{background:var(--card);border-radius:10px;padding:18px;margin-top:18px;box-shadow:0 6px 20px rgba(2,6,23,0.06)}
+  h2{margin-top:0}
+  .btn{background:var(--accent);color:#fff;padding:10px 16px;border:none;border-radius:8px;cursor:pointer}
+  .btn-ghost{background:transparent;border:1px solid rgba(11,92,255,0.12);padding:9px 14px;border-radius:8px;cursor:pointer}
+
+  /* Modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(2,6,23,.6);display:none;align-items:center;justify-content:center;z-index:9999}
+  .modal-box{background:#fff;border-radius:12px;padding:18px;width:92%;max-width:760px;max-height:90vh;overflow:auto;box-shadow:0 30px 80px rgba(2,6,23,.3)}
+  .modal-close{position:absolute;right:14px;top:12px;font-size:20px;background:transparent;border:0;cursor:pointer}
+  .modal-header{position:relative;padding-bottom:8px;border-bottom:1px solid #eef2ff;margin-bottom:12px}
+  iframe.form-embed{width:100%;height:640px;border:0}
+
+  /* responsive */
+  @media(max-width:880px){
+    .hero{flex-direction:column}
+    .hero img{max-width:100%;width:100%}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Consultoría para Locales de Repuestos – Calle 10 de Julio</h1>
+    <nav>
+      <a onclick="scrollToId('quien')">Quién soy</a>
+      <a onclick="scrollToId('testimonios')">Testimonios</a>
+      <a onclick="openModal()">Agendar</a>
+    </nav>
+  </header>
+
+  <div class="hero" aria-hidden="false">
+    <div class="text">
+      <h2>Transforme su local de repuestos en 1 hora</h2>
+      <p style="color:var(--muted)">Diagnóstico profesional en terreno – 1 hora. Sesión: 1,5 UF.</p>
+      <div style="margin-top:12px">
+        <button class="btn" onclick="openModal()">Agendar Diagnóstico</button>
+        <button class="btn-ghost" onclick="scrollToId('quien')">Ver quién soy</button>
+      </div>
+    </div>
+    <!-- Cambia la URL por la imagen pública que vayas a usar -->
+    <img id="heroImage" src="CARLOS_CAMINANDO.jpg" alt="Carlos caminando 10 de Julio" />
+  </div>
+
+  <section id="quien">
+    <h2>Quién soy</h2>
+    <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+      <img id="profileImage" src="CARLOS_ESCRITORIO.jpg" alt="Carlos en escritorio" style="width:220px;border-radius:10px;object-fit:cover" />
+      <div style="flex:1">
+        <p><strong>Carlos Guibernau</strong><br>
+        Experto en Transformación de Negocios. 430+ proyectos en 11 países. Experiencia con AT&T, Dell, Unisys y PNUD – Programa de Naciones Unidas. Proyectos para 100 de las 200 mayores empresas en Chile.</p>
+        <p>
+          <a href="https://sites.google.com/view/gerenciaproyectosti/inicio" target="_blank">Ver Trayectoria</a> ·
+          <a href="https://www.youtube.com/@CarlosGuibernau" target="_blank">Canal de YouTube</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios">
+    <h2>Testimonios & Casos de Éxito</h2>
+
+    <div style="display:grid;gap:12px">
+      <blockquote style="margin:0;padding:12px;border-left:4px solid #e6f0ff;background:#fbfdff;border-radius:6px">
+        <strong>Ignacio Domeyko</strong><br><small>Gerente General, Dell Chile</small>
+        <p style="margin-top:8px">"Carlos demostró un liderazgo excepcional al gestionar nuestra migración TI en tiempo récord..."</p>
+      </blockquote>
+
+      <blockquote style="margin:0;padding:12px;border-left:4px solid #e6f0ff;background:#fbfdff;border-radius:6px">
+        <strong>Marcela Salazar</strong><br><small>Gerente General, Officenter Chile</small>
+        <p style="margin-top:8px">"Carlos es un profesional íntegro, responsable y competente..."</p>
+      </blockquote>
+
+      <blockquote style="margin:0;padding:12px;border-left:4px solid #e6f0ff;background:#fbfdff;border-radius:6px">
+        <strong>Orlando Ulloa</strong><br><small>NetApp Professional Services Consultant</small>
+        <p style="margin-top:8px">"Su compromiso con la eficiencia... fue una constante..."</p>
+      </blockquote>
+
+      <blockquote style="margin:0;padding:12px;border-left:4px solid #e6f0ff;background:#fbfdff;border-radius:6px">
+        <strong>Carlos Schirokauer</strong><br><small>Gerente Cuentas, Unisys</small>
+        <p style="margin-top:8px">"He conocido a Carlos Guibernau como un profesional comprometido, responsable y competente. Con un alto nivel de eficiencia en la dirección, ejecución y cierre de Proyectos. Con orientación al resultado; es lo que pude verificar en los 2 Proyectos país implementados en forma conjunta, con total éxito."</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: <a href="mailto:cguibernau@gmail.com">cguibernau@gmail.com</a></p>
+  </section>
+
+  <footer style="margin-top:18px;text-align:center;color:var(--muted);font-size:14px">
+    © Carlos Guibernau — Consultoría de Alto Impacto
+  </footer>
+</div>
+
+<!-- MODAL (POP-UP) -->
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <h3 id="modalTitle">Agendar Diagnóstico</h3>
+      <button class="modal-close" aria-label="Cerrar" onclick="closeModal()">✕</button>
+    </div>
+
+    <p>Complete el formulario para solicitar una fecha. Le confirmaremos por mail/WhatsApp.</p>
+
+    <!-- Pega aquí el URL de tu Google Form (Incrustar -> copiar URL del iframe) -->
+    <iframe class="form-embed" src="FORM_URL_AQUI" title="Formulario de Agendamiento"></iframe>
+
+    <div style="text-align:right;margin-top:12px">
+      <button class="btn-ghost" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Smooth scroll that avoids header overlap */
+function scrollToId(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - 24; // offset for header
+  window.scrollTo({top: y, behavior: 'smooth'});
+}
+
+/* Modal controls */
+function openModal(){
+  const overlay = document.getElementById('modalOverlay');
+  overlay.style.display = 'flex';
+  overlay.setAttribute('aria-hidden','false');
+  // optional: lock scroll
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  const overlay = document.getElementById('modalOverlay');
+  overlay.style.display = 'none';
+  overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+
+/* Small safety: if iframe blocks due to permissions in preview, show user instruction */
+window.addEventListener('DOMContentLoaded', ()=>{
+  const formFrame = document.querySelector('.form-embed');
+  if(formFrame && formFrame.src.indexOf('FORM_URL_AQUI') !== -1){
+    console.warn('FORM_URL_AQUI no reemplazado: el formulario no cargará hasta reemplazar la URL por la del Google Form embebido.');
+  }
+});
+</script>
+
+</body>
+</html>
